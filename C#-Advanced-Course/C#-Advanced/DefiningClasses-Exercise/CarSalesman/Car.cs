@@ -23,7 +23,7 @@ namespace CarSalesman
 
         public Car(string model, Engine engine, string weight) : this(model, engine)
         {
-            thi.Weight = weight;
+            this.Weight = weight;
 
         }
 
