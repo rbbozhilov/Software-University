@@ -6,7 +6,6 @@ function solution(arr) {
     arr = arr.join(', ');
     console.log('[%s]',arr);
 
-
 }
 
 solution([3,19,14,7,2,19,6]);
