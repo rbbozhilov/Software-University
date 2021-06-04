@@ -9,7 +9,6 @@ function extract(content) {
 
         finalResult.push(match[1]);
         match = regex.exec(text);
-
     }
 
     return finalResult.join('; ');
