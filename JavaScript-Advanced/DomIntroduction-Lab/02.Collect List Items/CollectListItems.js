@@ -3,6 +3,5 @@ function extractText() {
     for(let element of elements) {
         document.getElementById('result').textContent +=element.textContent + '\n';
     }
-   
 }
 
