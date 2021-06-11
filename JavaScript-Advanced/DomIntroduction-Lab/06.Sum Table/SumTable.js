@@ -12,8 +12,6 @@ function sumTable() {
         const lastTd = Number(td[td.length-1].textContent);
         sum +=lastTd;
 
-
-
     }
 
    document.getElementById('sum').textContent = sum;
