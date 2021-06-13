@@ -17,8 +17,6 @@ function factory(library,orders) {
     return result;
 }
 
-
-
 const library = {
     print: function () {
       console.log(`${this.name} is printing a page`);
