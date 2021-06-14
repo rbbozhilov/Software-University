@@ -15,8 +15,6 @@ function cityTaxes(name,population,treasury) {
         }
 
     };
-
-    
  
     return obj;
 }
