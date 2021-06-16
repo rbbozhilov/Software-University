@@ -9,7 +9,6 @@ function solution(commands) {
             finalArray.push(counter);
         } else if (commands[i]== 'remove') {
 
-
             if(finalArray.length != 0) {
                 finalArray.pop();
             }
