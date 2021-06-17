@@ -1,6 +1,5 @@
 function solution(currentArray) {
 
-
     currentArray = currentArray.sort((a,b) => a.localeCompare(b));
 
     for(let i = 0 ; i<currentArray.length ; i++) {
