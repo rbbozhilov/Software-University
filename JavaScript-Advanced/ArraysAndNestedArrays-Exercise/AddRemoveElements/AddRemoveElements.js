@@ -16,7 +16,6 @@ function solution(commands) {
         }
 
         counter++;
-
     }
 
 
