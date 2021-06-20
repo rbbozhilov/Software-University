@@ -26,7 +26,6 @@ function solution(commands) {
         console.log(finalArray[i]);
     }
     
-
 }
 
 
