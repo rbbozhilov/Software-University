@@ -6,7 +6,6 @@ function solution(currentArray) {
         console.log('%s.%s',i+1,currentArray[i]);
     }
 
-
 }
 
 solution(['John','Bob','Christina','Ema']);
