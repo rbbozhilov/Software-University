@@ -6,7 +6,6 @@ function solution(currentArray,step) {
 
     for(let i = 0 ; i < currentArray.length; i++ ) {
 
-
         if(i==0) {
             finalArray.push(currentArray[i]);
             continue;
