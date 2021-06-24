@@ -28,8 +28,6 @@ describe('Testing odd or even number it is', () => {
 
     it('Should be even number', () => {
 
-        
-
         assert.isUndefined(isOddOrEven(5));
 
 
