@@ -1,7 +1,6 @@
 
 function arrInstance() {
 
-
 class Person {
 
     constructor(firstName,lastName,age,email) {
