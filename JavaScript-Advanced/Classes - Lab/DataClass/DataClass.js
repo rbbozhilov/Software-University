@@ -11,8 +11,6 @@ class Request {
         this.version = version;
        
     }
-
-
 }
 
 let myData = new Request('GET', 'http://google.com', 'HTTP/1.1', '')
