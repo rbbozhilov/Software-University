@@ -11,7 +11,6 @@ class Rectangle {
         return this.width * this.height;
     }
 
-
 }
 
 let rect = new Rectangle(4, 5, 'Red');
