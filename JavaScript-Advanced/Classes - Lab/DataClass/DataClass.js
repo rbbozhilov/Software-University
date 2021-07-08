@@ -8,8 +8,7 @@ class Request {
         this.method = method;
         this.message = message;
         this.uri  = uri;
-        this.version = version;
-       
+        this.version = version; 
     }
 }
 
