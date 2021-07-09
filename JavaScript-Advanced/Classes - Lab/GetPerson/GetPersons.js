@@ -14,7 +14,6 @@ class Person {
         return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`;
     }
 }
-
 let arrOfIstances = [];
 arrOfIstances.push(new Person('Anna','Simpson',22,'anna@yahoo.com'));
 arrOfIstances.push(new Person('SoftUni'));
