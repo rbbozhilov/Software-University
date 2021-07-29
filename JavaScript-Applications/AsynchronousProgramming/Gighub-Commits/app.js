@@ -15,6 +15,7 @@ function loadCommits() {
             throw new Error();
         }
 
+
           return response.json();
       })
       .then((dataFromResponse) => {
