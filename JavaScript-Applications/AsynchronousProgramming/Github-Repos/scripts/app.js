@@ -27,8 +27,6 @@ async function loadRepos() {
 	} catch(error) {
 
 		console.log(error);
-
-
 	}
 
 }
