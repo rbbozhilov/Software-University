@@ -24,12 +24,6 @@ namespace DoubleLinkedList
             watch.Stop();
             Console.WriteLine("DoubleLinkedList Time ->  " + watch.Elapsed);
 
-
-
-
-
-
-
         }
     }
 }
