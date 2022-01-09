@@ -13,8 +13,6 @@ namespace WorkShop.HTTP
     {
 
         private IDictionary<string, Func<HttpRequest, HttpResponse>> routeTable = new Dictionary<string, Func<HttpRequest, HttpResponse>>();
-        private const int sizeBuffer = 4096;
-        private const string newLine = "\r\n";
 
         public HttpServer()
         {
@@ -63,7 +61,7 @@ namespace WorkShop.HTTP
             {
 
                 List<byte> data = new List<byte>();
-                byte[] buffer = new byte[sizeBuffer];
+                byte[] buffer = new byte[HttpConstants.sizeBuffer];
                 int position = 0;
 
                 while (true)
@@ -95,16 +93,18 @@ namespace WorkShop.HTTP
 
 
                 Console.WriteLine(request);
+                
+                var getCustomRequest = new HttpRequest(request);
 
                 var responseHtml = "<h1> Welcome to our site </h1>";
                 var responseBodyBufferBytes = GetBytes(responseHtml);
 
 
 
-                var responseHeader = "HTTP/1.1 200 OK" + newLine +
-                               "Server: Workshop1-Server" + newLine +
-                               "Content-Type: text/html" + newLine +
-                               "Content-Length: " + responseBodyBufferBytes.Length + newLine + newLine;
+                var responseHeader = "HTTP/1.1 200 OK" + HttpConstants.newLine +
+                               "Server: Workshop1-Server" + HttpConstants.newLine +
+                               "Content-Type: text/html" + HttpConstants.newLine +
+                               "Content-Length: " + responseBodyBufferBytes.Length + HttpConstants.newLine + HttpConstants.newLine;
 
                 var responseHTTPBufferBytes = GetBytes(responseHeader);
 
@@ -112,6 +112,7 @@ namespace WorkShop.HTTP
                 await stream.WriteAsync(responseBodyBufferBytes);
 
 
+                tcpClient.Close();
             }
 
         }
