@@ -17,6 +17,7 @@ namespace MvcFrameworkApp
             server.AddRoute("/about", About);
 
             server.AddRoute("/users/login", Login);
+            server.AddRoute("/favicon.ico", Favicon);
 
             await server.StartAsync(2929);
         }
@@ -43,6 +44,14 @@ namespace MvcFrameworkApp
 
 
         }
+
+        static HttpResponse Favicon(HttpRequest request)
+        {
+
+            throw new NotImplementedException();
+
+        }
+
 
     }
 }

@@ -12,13 +12,15 @@ namespace WorkShop.HTTP
     public class HttpServer : IHttpServer
     {
 
-        private IDictionary<string,Func<HttpRequest,HttpResponse>> routeTable = new Dictionary<string,Func<HttpRequest,HttpResponse>>();
+        private IDictionary<string, Func<HttpRequest, HttpResponse>> routeTable = new Dictionary<string, Func<HttpRequest, HttpResponse>>();
+        private const int sizeBuffer = 4096;
+        private const string newLine = "\r\n";
 
         public HttpServer()
         {
 
         }
-        
+
 
         public void AddRoute(string path, Func<HttpRequest, HttpResponse> action)
         {
@@ -39,7 +41,7 @@ namespace WorkShop.HTTP
         public async Task StartAsync(int port)
         {
 
-            TcpListener tcpListener = new TcpListener(IPAddress.Loopback,port);
+            TcpListener tcpListener = new TcpListener(IPAddress.Loopback, port);
 
             tcpListener.Start();
 
@@ -61,7 +63,7 @@ namespace WorkShop.HTTP
             {
 
                 List<byte> data = new List<byte>();
-                byte[] buffer = new byte[4096];
+                byte[] buffer = new byte[sizeBuffer];
                 int position = 0;
 
                 while (true)
@@ -70,8 +72,8 @@ namespace WorkShop.HTTP
                     int count = await stream.ReadAsync(buffer, position, buffer.Length);
                     position += count;
 
-                
-                    if(count < buffer.Length)
+
+                    if (count < buffer.Length)
                     {
 
                         var bufferWithData = new byte[count];
@@ -94,8 +96,29 @@ namespace WorkShop.HTTP
 
                 Console.WriteLine(request);
 
+                var responseHtml = "<h1> Welcome to our site </h1>";
+                var responseBodyBufferBytes = GetBytes(responseHtml);
+
+
+
+                var responseHeader = "HTTP/1.1 200 OK" + newLine +
+                               "Server: Workshop1-Server" + newLine +
+                               "Content-Type: text/html" + newLine +
+                               "Content-Length: " + responseBodyBufferBytes.Length + newLine + newLine;
+
+                var responseHTTPBufferBytes = GetBytes(responseHeader);
+
+                await stream.WriteAsync(responseHTTPBufferBytes);
+                await stream.WriteAsync(responseBodyBufferBytes);
+
+
             }
 
+        }
+
+        private byte[] GetBytes(string text)
+        {
+            return Encoding.UTF8.GetBytes(text);
         }
     }
 }
