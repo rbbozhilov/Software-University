@@ -74,9 +74,9 @@ namespace WorkShop.HTTP
 
         public string RequestBody { get; set; }
 
-        public List<Header> Headers { get; set; }
+        public ICollection<Header> Headers { get; set; }
 
-        public List<Cookie> Cookies { get; set; }
+        public ICollection<Cookie> Cookies { get; set; }
 
 
     }

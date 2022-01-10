@@ -9,4 +9,10 @@
     <ProjectReference Include="..\..\WorkShop.HTTP\WorkShop.HTTP.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="wwwroot\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

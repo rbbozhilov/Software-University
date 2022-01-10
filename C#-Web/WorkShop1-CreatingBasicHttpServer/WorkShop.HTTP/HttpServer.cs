@@ -99,17 +99,26 @@ namespace WorkShop.HTTP
                 var responseHtml = "<h1> Welcome to our site </h1>";
                 var responseBodyBufferBytes = GetBytes(responseHtml);
 
+                HttpResponse response;
+
+                if (routeTable.ContainsKey(getCustomRequest.Path))
+                {
+                    var action = routeTable[getCustomRequest.Path];
+
+                    response = action(getCustomRequest);
+                }
+                else
+                {
+                    //Not Found 404
+                    var bodyHtmlNotFound = "<h1> Sorry wrong path you write try again! </h1>";
+                    response = new HttpResponse(HttpStatusCode.NotFound, "text/html", GetBytes(bodyHtmlNotFound));
+                }
 
 
-                var responseHeader = "HTTP/1.1 200 OK" + HttpConstants.newLine +
-                               "Server: Workshop1-Server" + HttpConstants.newLine +
-                               "Content-Type: text/html" + HttpConstants.newLine +
-                               "Content-Length: " + responseBodyBufferBytes.Length + HttpConstants.newLine + HttpConstants.newLine;
-
-                var responseHTTPBufferBytes = GetBytes(responseHeader);
+                var responseHTTPBufferBytes = GetBytes(response.ToString());
 
                 await stream.WriteAsync(responseHTTPBufferBytes);
-                await stream.WriteAsync(responseBodyBufferBytes);
+                await stream.WriteAsync(response.Body);
 
 
                 tcpClient.Close();
