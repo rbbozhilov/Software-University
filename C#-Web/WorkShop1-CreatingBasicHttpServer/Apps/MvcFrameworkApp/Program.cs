@@ -1,7 +1,9 @@
 ﻿using MvcFrameworkApp.Controllers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WorkShop.HTTP;
 using WorkShop.HTTP.Contracts;
+using WorkShop.MvcFramework;
 
 namespace MvcFrameworkApp
 {
@@ -11,14 +13,17 @@ namespace MvcFrameworkApp
         {
             IHttpServer server = new HttpServer();
 
+            List<Route> routeTable = new List<Route>();
 
-            server.AddRoute("/", new HomeController().HomePage);
-            server.AddRoute("/about", new HomeController().About);
-            server.AddRoute("/users/login", new UsersController().Login);
-            server.AddRoute("/users/register", new UsersController().Register);
-            server.AddRoute("/favicon.ico", new StaticFilesController().Favicon);
+            routeTable.Add(new Route("/", new HomeController().HomePage));
+            routeTable.Add(new Route("/about", new HomeController().About));
+            routeTable.Add(new Route("/users/login", new UsersController().Login));
+            routeTable.Add(new Route("/users/register", new UsersController().Register));
+            routeTable.Add(new Route("/favicon.ico", new StaticFilesController().Favicon));
 
-            await server.StartAsync(2929);
+
+
+            await Host.RunAsync(routeTable);
         }
 
 

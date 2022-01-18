@@ -11,16 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Views\About\About.html">
+    <None Update="Views\Home\About.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Views\Home\Home.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Views\User\Login.html">
+    <None Update="Views\Users\Login.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Views\User\Register.html">
+    <None Update="Views\Users\Register.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="wwwroot\favicon.ico">

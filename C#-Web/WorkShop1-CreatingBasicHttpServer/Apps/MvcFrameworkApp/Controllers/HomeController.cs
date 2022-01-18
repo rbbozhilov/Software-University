@@ -11,15 +11,13 @@ namespace MvcFrameworkApp.Controllers
 
         public HttpResponse HomePage(HttpRequest request)
         {
-            return this.View("Views/Home/Home.html");
+            return this.View();
         }
-
 
         public HttpResponse About(HttpRequest request)
         {
-            return this.View("Views/About/About.html");
+            return this.View();
         }
-
 
     }
 }

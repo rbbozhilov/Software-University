@@ -11,12 +11,12 @@ namespace MvcFrameworkApp.Controllers
 
         public HttpResponse Login(HttpRequest request)
         {
-            return this.View("Views/User/Login.html");
+            return this.View();
         }
 
         public HttpResponse Register(HttpRequest request)
         {
-            return this.View("Views/User/Register.html");
+            return this.View();
         }
 
     }
