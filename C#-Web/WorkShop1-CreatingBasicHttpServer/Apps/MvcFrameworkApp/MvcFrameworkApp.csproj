@@ -7,9 +7,22 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\WorkShop.HTTP\WorkShop.HTTP.csproj" />
+    <ProjectReference Include="..\..\WorkShop.MvcFramework\WorkShop.MvcFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Views\About\About.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\Home\Home.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\User\Login.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Views\User\Register.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="wwwroot\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
