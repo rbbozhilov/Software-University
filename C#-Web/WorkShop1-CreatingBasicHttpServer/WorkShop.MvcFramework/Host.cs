@@ -11,11 +11,17 @@ namespace WorkShop.MvcFramework
     public static class Host
     {
 
-
-        public static async Task RunAsync(List<Route> routeTable)
+        public static async Task RunAsync(IMvcApplication application)
         {
 
+            List<Route> routeTable = new List<Route>();
+
+            application.ConfigureServices();
+            application.Configure(routeTable);
+
             IHttpServer server = new HttpServer();
+
+        
 
             foreach (var route in routeTable)
             {

@@ -9,12 +9,29 @@ namespace MvcFrameworkApp.Controllers
 
         public HttpResponse Favicon(HttpRequest request)
         {
+            return this.FileResponse("wwwroot/favicon.ico", "image/x-icon");
+        }
 
-            var bytes = File.ReadAllBytes("wwwroot/favicon.ico");
 
-            var response = new HttpResponse(HttpStatusCode.Ok, "image/x-icon", bytes);
+        public HttpResponse BootStrapCss(HttpRequest request)
+        {
+            return this.FileResponse("wwwroot/css/bootstrap.min.css", "text/css");
+        }
 
-            return response;
+
+        public HttpResponse CustomCss(HttpRequest request)
+        {
+            return this.FileResponse("wwwroot/css/custom.css", "text/css");
+        }
+
+        public HttpResponse CustomJs(HttpRequest request)
+        {
+            return this.FileResponse("wwwroot/js/custom.js", "text/javascript");
+        }
+
+        public HttpResponse BootStrapJs(HttpRequest request)
+        {
+            return this.FileResponse("wwwroot/js/bootstrap.bundle.min.js", "text/javascript");
         }
 
     }
