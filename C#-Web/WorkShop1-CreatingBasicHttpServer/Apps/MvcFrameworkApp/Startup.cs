@@ -23,6 +23,7 @@ namespace MvcFrameworkApp
             routeTable.Add(new Route("/js/custom.js", HttpMethod.Get, new StaticFilesController().CustomJs));
         }
 
+
         public void ConfigureServices()
         {
             
