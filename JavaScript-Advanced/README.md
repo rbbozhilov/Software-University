@@ -1,7 +1,7 @@
 ## Overview
 Here you can check what i learn from this course
 
-##Topics:
+## Topics:
  - Syntax, Functions and Statements
  - Exercise: Syntax, Functions and Statements
  - Arrays and Nested Arrays
